@@ -4,35 +4,30 @@ const apiCars =
 const contenedorLista = document.getElementById("lista-productos");
 
 document.addEventListener("DOMContentLoaded", () => {
-  getCars();
+  getProducts();
 });
 
-function getCars() {
+function getProducts() {
   fetch(apiCars)
     .then((response) => response.json())
-    .then((data) => showCars(data.products));
+    .then((data) => showProducts(data.products));
 }
 
-function showCars(datos) {
+function showProducts(datos) {
   for (let i = 0; i < datos.length; i++) {
     let contenedor = document.createElement("div");
-    contenedor.classList.add("list-group-item");
-    contenedor.classList.add("list-group-item-action");
+    contenedor.classList.add("contenedor-producto");
     contenedor.innerHTML = `
-    <div class="row">
-            <div class="col-3">
-                <img class="img-thumbnail" src=${datos[i].image}>
+            <div class="contenedor-imagen">
+                <img class="imagen-producto" src=${datos[i].image}>
             </div>
-    <div class="col">
-    <div class="d-flex w-100 justify-content-between">
-        <div class="mb-1">
-            <h3 class="nombre">${datos[i].name} - ${datos[i].currency} ${datos[i].cost}</h3>
+    <div class="info-producto">
+        <div>
+            <h3 class="datos">${datos[i].name} - ${datos[i].currency} ${datos[i].cost}</h3>
             <p class="desc">${datos[i].description} </p> 
         </div>
         <p class="vendidos">${datos[i].soldCount} vendidos</p>
     </div>
-     </div>
-      </div>
     `;
 
     contenedorLista.appendChild(contenedor);
