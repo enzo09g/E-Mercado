@@ -1,17 +1,28 @@
+// Guardamos en una constante el endpoint que contiene la info de los productos de categoría autos
+
 const apiCars =
   "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
+// Guardamos en una constante el elemento con id lista-productos
+// A este elemento le vamos a agregar los elementos con la información de cada auto como hijo
+
 const contenedorLista = document.getElementById("lista-productos");
+
+// Una vez se carga el html, corremos el script
 
 document.addEventListener("DOMContentLoaded", () => {
   getProducts();
 });
+
+// hacmoes fetch al endpoint con la información de los autos y los adjunta al elemento contenedorLista
 
 function getProducts() {
   fetch(apiCars)
     .then((response) => response.json())
     .then((data) => showProducts(data.products));
 }
+
+// Iteramos el array que tiene la info de cada auto, por cada objeto del array creamos un elemento html y los vamos adjuntando a un elemento padre del html
 
 function showProducts(datos) {
   for (let i = 0; i < datos.length; i++) {
