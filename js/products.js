@@ -8,13 +8,7 @@ const apiCars =
 
 const contenedorLista = document.getElementById("lista-productos");
 
-// Una vez se carga el html, corremos el script
-
-document.addEventListener("DOMContentLoaded", () => {
-  getProducts();
-});
-
-// hacmoes fetch al endpoint con la información de los autos y los adjunta al elemento contenedorLista
+// hacemos fetch al endpoint con la información de los autos y los adjunta al elemento contenedorLista
 
 function getProducts() {
   fetch(apiCars)
@@ -44,3 +38,9 @@ function showProducts(datos) {
     contenedorLista.appendChild(contenedor);
   }
 }
+
+// Una vez se carga el html, corremos el script
+
+document.addEventListener("DOMContentLoaded", () => {
+  getProducts();
+});
