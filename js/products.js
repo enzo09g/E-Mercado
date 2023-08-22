@@ -16,7 +16,7 @@ function getProducts() {
     .then((data) => showProducts(data.products));
 }
 
-// Iteramos el array que tiene la info de cada auto, por cada objeto del array creamos un elemento html y los vamos adjuntando a un elemento padre del html
+// Iteramos el array que tiene la info de cada producto, por cada objeto del array creamos un elemento html y los vamos adjuntando a un elemento padre del html
 
 function showProducts(datos) {
   for (let i = 0; i < datos.length; i++) {
